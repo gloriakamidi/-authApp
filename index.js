@@ -11,10 +11,10 @@ const expressSession = require("express-session")({
 });
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(expressSession);
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8000;
 app.listen(port, () => console.log('App listening on port ' + port));
 
 /* PASSPORT SETUP */
@@ -92,10 +92,12 @@ connectEnsureLogin.ensureLoggedIn(),
 app.get('/logout',
   (req, res) => {
     req.logout(),
-    res.sendFile('html/logout.html',
-    {root: __dirname}
+    res.sendFile('html/logout.html', 
+    { root: __dirname }
     )
   });
+
+
 
   /* REGISTER SOME USERS*/
   
